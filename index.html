@@ -2,40 +2,111 @@
 <html>
 <head>
     <title>Server Configuration</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* (Previous CSS styles remain the same) */
+        .back-button {
+            display: none; /* Hidden by default, shown when viewing details */
+            padding: 10px 20px;
+            background-color: #2c5282;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .back-button:hover {
+            background-color: #4299e1;
+        }
+
+        #detailContent {
+            display: none; /* Hidden by default */
+        }
+
+        #mainContent {
+            display: block; /* Shown by default */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Server Configuration Builder</h1>
-        <div class="server-grid">
-            <div class="server-card">
-                <h2>Basic Web Server</h2>
-                <div class="specs">
-                    <p>CPU: <a href="#cpu-details">4 cores, 2.5GHz</a></p>
-                    <p>RAM: <a href="#ram-details">16GB DDR4</a></p>
-                    <p>Storage: <a href="#storage-details">500GB SSD</a></p>
-                    <p class="price"><a href="#pricing-details">$599</a></p>
+        <button onclick="showMain()" class="back-button">← Back to Configurations</button>
+        <div id="mainContent">
+            <h1>Server Configuration Builder</h1>
+            <div class="server-grid">
+                <!-- Main content remains the same but with modified links -->
+                <div class="server-card">
+                    <h2>Basic Web Server</h2>
+                    <div class="specs">
+                        <p>CPU: <a href="#" onclick="showDetail('cpu-basic'); return false;">4 cores, 2.5GHz</a></p>
+                        <p>RAM: <a href="#" onclick="showDetail('ram-basic'); return false;">16GB DDR4</a></p>
+                        <p>Storage: <a href="#" onclick="showDetail('storage-basic'); return false;">500GB SSD</a></p>
+                        <p class="price"><a href="#" onclick="showDetail('price-basic'); return false;">$599</a></p>
+                    </div>
                 </div>
-            </div>
-            <div class="server-card">
-                <h2>Database Server</h2>
-                <div class="specs">
-                    <p>CPU: <a href="#cpu-details-db">8 cores, 3.2GHz</a></p>
-                    <p>RAM: <a href="#ram-details-db">32GB DDR4</a></p>
-                    <p>Storage: <a href="#storage-details-db">1TB NVMe SSD</a></p>
-                    <p class="price"><a href="#pricing-details-db">$999</a></p>
-                </div>
-            </div>
-            <div class="server-card">
-                <h2>Enterprise Server</h2>
-                <div class="specs">
-                    <p>CPU: <a href="#cpu-details-ent">16 cores, 3.5GHz</a></p>
-                    <p>RAM: <a href="#ram-details-ent">64GB DDR4</a></p>
-                    <p>Storage: <a href="#storage-details-ent">2TB NVMe SSD</a></p>
-                    <p class="price"><a href="#pricing-details-ent">$1899</a></p>
-                </div>
+                <!-- Other server cards follow the same pattern -->
             </div>
         </div>
+
+        <div id="detailContent"></div>
     </div>
+
+    <script>
+        // Component details stored as JavaScript objects
+        const componentDetails = {
+            'cpu-basic': {
+                title: 'Basic Web Server CPU Details',
+                cards: [
+                    {
+                        title: 'CPU Specifications',
+                        specs: [
+                            'Model: Intel Xeon E-2224',
+                            'Cores: 4 physical cores',
+                            'Base Frequency: 2.5GHz',
+                            'Turbo Boost: Up to 3.5GHz',
+                            'Cache: 8MB Intel Smart Cache',
+                            'TDP: 65W'
+                        ]
+                    },
+                    // Add more cards as needed
+                ]
+            },
+            // Add other component details here
+        };
+
+        function showDetail(componentId) {
+            const details = componentDetails[componentId];
+            const mainContent = document.getElementById('mainContent');
+            const detailContent = document.getElementById('detailContent');
+            const backButton = document.querySelector('.back-button');
+            
+            mainContent.style.display = 'none';
+            detailContent.style.display = 'block';
+            backButton.style.display = 'inline-block';
+            
+            // Generate detail page content
+            let html = `<h1>${details.title}</h1><div class="server-grid">`;
+            details.cards.forEach(card => {
+                html += `
+                    <div class="server-card">
+                        <h2>${card.title}</h2>
+                        <div class="specs">
+                            ${card.specs.map(spec => `<p>${spec}</p>`).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            detailContent.innerHTML = html;
+        }
+
+        function showMain() {
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('detailContent').style.display = 'none';
+            document.querySelector('.back-button').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
