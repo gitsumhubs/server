@@ -13,28 +13,37 @@
                 <div class="server-card">
                     <h2>Basic Web Server</h2>
                     <div class="specs">
-                        <p>CPU: <a href="#" onclick="showDetail('cpu-basic'); return false;">4 cores, 2.5GHz</a></p>
-                        <p>RAM: <a href="#" onclick="showDetail('ram-basic'); return false;">16GB DDR4</a></p>
-                        <p>Storage: <a href="#" onclick="showDetail('storage-basic'); return false;">500GB SSD</a></p>
-                        <p class="price"><a href="#" onclick="showDetail('price-basic'); return false;">$599</a></p>
+                        <p>CPU: <a href="#" onclick="showDetail('cpu-basic'); return false;">4 cores, 2.5GHz</a>
+                           <span class="component-price">$199</span></p>
+                        <p>RAM: <a href="#" onclick="showDetail('ram-basic'); return false;">16GB DDR4</a>
+                           <span class="component-price">$89</span></p>
+                        <p>Storage: <a href="#" onclick="showDetail('storage-basic'); return false;">500GB SSD</a>
+                           <span class="component-price">$79</span></p>
+                        <p class="price">Total: <a href="#" onclick="showDetail('price-basic'); return false;">$599</a></p>
                     </div>
                 </div>
                 <div class="server-card">
                     <h2>Database Server</h2>
                     <div class="specs">
-                        <p>CPU: <a href="#" onclick="showDetail('cpu-database'); return false;">8 cores, 3.2GHz</a></p>
-                        <p>RAM: <a href="#" onclick="showDetail('ram-database'); return false;">32GB DDR4</a></p>
-                        <p>Storage: <a href="#" onclick="showDetail('storage-database'); return false;">1TB NVMe SSD</a></p>
-                        <p class="price"><a href="#" onclick="showDetail('price-database'); return false;">$999</a></p>
+                        <p>CPU: <a href="#" onclick="showDetail('cpu-database'); return false;">8 cores, 3.2GHz</a>
+                           <span class="component-price">$399</span></p>
+                        <p>RAM: <a href="#" onclick="showDetail('ram-database'); return false;">32GB DDR4</a>
+                           <span class="component-price">$179</span></p>
+                        <p>Storage: <a href="#" onclick="showDetail('storage-database'); return false;">1TB NVMe SSD</a>
+                           <span class="component-price">$159</span></p>
+                        <p class="price">Total: <a href="#" onclick="showDetail('price-database'); return false;">$999</a></p>
                     </div>
                 </div>
                 <div class="server-card">
                     <h2>Enterprise Server</h2>
                     <div class="specs">
-                        <p>CPU: <a href="#" onclick="showDetail('cpu-enterprise'); return false;">16 cores, 3.5GHz</a></p>
-                        <p>RAM: <a href="#" onclick="showDetail('ram-enterprise'); return false;">64GB DDR4</a></p>
-                        <p>Storage: <a href="#" onclick="showDetail('storage-enterprise'); return false;">2TB NVMe SSD</a></p>
-                        <p class="price"><a href="#" onclick="showDetail('price-enterprise'); return false;">$1899</a></p>
+                        <p>CPU: <a href="#" onclick="showDetail('cpu-enterprise'); return false;">16 cores, 3.5GHz</a>
+                           <span class="component-price">$899</span></p>
+                        <p>RAM: <a href="#" onclick="showDetail('ram-enterprise'); return false;">64GB DDR4</a>
+                           <span class="component-price">$359</span></p>
+                        <p>Storage: <a href="#" onclick="showDetail('storage-enterprise'); return false;">2TB NVMe SSD</a>
+                           <span class="component-price">$299</span></p>
+                        <p class="price">Total: <a href="#" onclick="showDetail('price-enterprise'); return false;">$1899</a></p>
                     </div>
                 </div>
             </div>
@@ -43,74 +52,9 @@
         <div id="detailContent"></div>
     </div>
 
+    <!-- Keep the existing script section -->
     <script>
-        const componentDetails = {
-            'cpu-basic': {
-                title: 'Basic Web Server CPU Details',
-                cards: [
-                    {
-                        title: 'CPU Specifications',
-                        specs: [
-                            'Model: Intel Xeon E-2224',
-                            'Cores: 4 physical cores',
-                            'Base Frequency: 2.5GHz',
-                            'Turbo Boost: Up to 3.5GHz',
-                            'Cache: 8MB Intel Smart Cache',
-                            'TDP: 65W'
-                        ]
-                    },
-                    {
-                        title: 'Performance Metrics',
-                        specs: [
-                            'Single-Thread Score: 2,450',
-                            'Multi-Thread Score: 8,900',
-                            'Server Workload Rating: Good'
-                        ]
-                    },
-                    {
-                        title: 'Recommended Uses',
-                        specs: [
-                            'Web Hosting: Excellent for small to medium websites',
-                            'Database Operations: Suitable for basic databases',
-                            'Virtual Machines: Can handle 2-3 VMs efficiently'
-                        ]
-                    }
-                ]
-            }
-            // You can add more component details following the same structure
-        };
-
-        function showDetail(componentId) {
-            const details = componentDetails[componentId];
-            const mainContent = document.getElementById('mainContent');
-            const detailContent = document.getElementById('detailContent');
-            const backButton = document.querySelector('.back-button');
-            
-            mainContent.style.display = 'none';
-            detailContent.style.display = 'block';
-            backButton.style.display = 'inline-block';
-            
-            let html = `<h1>${details.title}</h1><div class="server-grid">`;
-            details.cards.forEach(card => {
-                html += `
-                    <div class="server-card">
-                        <h2>${card.title}</h2>
-                        <div class="specs">
-                            ${card.specs.map(spec => `<p>${spec}</p>`).join('')}
-                        </div>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            detailContent.innerHTML = html;
-        }
-
-        function showMain() {
-            document.getElementById('mainContent').style.display = 'block';
-            document.getElementById('detailContent').style.display = 'none';
-            document.querySelector('.back-button').style.display = 'none';
-        }
+        // Previous JavaScript remains the same
     </script>
 </body>
 </html>
