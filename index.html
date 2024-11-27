@@ -2,8 +2,9 @@
 <html>
 <head>
     <title>Server Configuration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A responsive server configuration layout.">
     <style>
-        /* Add all the CSS here */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -29,13 +30,13 @@
             background: white;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
 
         .server-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .server-card h2 {
@@ -78,43 +79,56 @@
             padding: 20px;
         }
 
-        .back-button {
-            display: none;
-            padding: 10px 20px;
-            background-color: #2c5282;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .back-button:hover {
-            background-color: #4299e1;
-        }
-
-        #detailContent {
-            display: none;
-        }
-
-        #mainContent {
-            display: block;
-        }
-
         @media (max-width: 768px) {
             .server-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .container {
                 padding: 10px;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
         }
     </style>
 </head>
-<!-- Rest of your HTML remains the same -->
+<body>
+    <div class="container">
+        <h1>Server Configurations</h1>
+        <div class="server-grid">
+            <!-- Server Card 1 -->
+            <div class="server-card">
+                <h2>Server 1</h2>
+                <div class="specs">
+                    <p>Processor: Intel Xeon</p>
+                    <p>Memory: 32GB</p>
+                    <p>Storage: 1TB SSD</p>
+                    <p><a href="#">More Details</a></p>
+                </div>
+            </div>
+            <!-- Server Card 2 -->
+            <div class="server-card">
+                <h2>Server 2</h2>
+                <div class="specs">
+                    <p>Processor: AMD EPYC</p>
+                    <p>Memory: 64GB</p>
+                    <p>Storage: 2TB SSD</p>
+                    <p><a href="#">More Details</a></p>
+                </div>
+            </div>
+            <!-- Server Card 3 -->
+            <div class="server-card">
+                <h2>Server 3</h2>
+                <div class="specs">
+                    <p>Processor: Intel Core i9</p>
+                    <p>Memory: 16GB</p>
+                    <p>Storage: 512GB SSD</p>
+                    <p><a href="#">More Details</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
